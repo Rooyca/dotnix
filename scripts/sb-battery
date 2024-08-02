@@ -1,0 +1,39 @@
+#!/bin/sh
+
+battery_info=$(acpi -b)
+battery_percentage=$(echo "$battery_info" | grep -P -o '[0-9]+(?=%)')
+battery_status=$(echo "$battery_info" | awk '{print $3}' | tr -d ',')
+
+# Define emoji based on battery percentage
+case $battery_percentage in
+    9[0-9]|100) emoji="󰂂" ;;
+    8[0-9]) emoji="󰂁" ;;
+    7[0-9]) emoji="󰂀" ;;
+    6[0-9]) emoji="󰁿" ;;
+    5[0-9]) emoji="󰁾" ;;
+    4[0-9]) emoji="󰁽" ;;
+    3[0-9]) emoji="󰁼" ;;
+    2[0-9]) emoji="󰁻" ;;
+    *) emoji="󰂃" ;;
+esac
+
+# Display battery status
+[ "$battery_status" = "Discharging" ] && echo "$emoji $battery_percentage%" || echo " $battery_percentage%"
+
+# Notification logic
+if [ "$battery_status" = "Discharging" ]; then
+    if [ "$battery_percentage" -lt 10 ]; then
+        [ ! -f /tmp/battery_warning ] && notify-send "Battery Low" "Battery below 10%" -u critical && touch /tmp/battery_warning
+    elif [ "$battery_percentage" -lt 20 ]; then
+        [ ! -f /tmp/battery_notification ] && notify-send "Battery Low" "Battery below 20%" -u normal && touch /tmp/battery_notification
+    else
+        rm -f /tmp/battery_notification /tmp/battery_warning
+    fi
+else
+    rm -f /tmp/battery_notification /tmp.battery_warning
+    if [ "$battery_percentage" -ge 98 ]; then
+        [ ! -f /tmp/battery_full ] && notify-send "Battery Full" "Battery at 98%" -u normal && touch /tmp/battery_full
+    else
+        rm -f /tmp/battery_full
+    fi
+fi

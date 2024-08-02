@@ -1,0 +1,84 @@
+[processor]
+label=  
+command=/home/ryc/.local/bin/sb-processor
+interval=2
+align=center
+
+[ram]
+command=free -h | awk '/^Mem:/ {print "󱞟 " $3 }'
+interval=10
+
+[battery]
+command=/home/ryc/.local/bin/sb-battery
+interval=20
+
+[volume]
+label= 
+interval=60
+command=sh ~/.config/i3blocks/vol.sh
+
+[brigthness]
+interval=3
+command=echo "󰃞 $(brightnessctl | grep -oP '\(\K\d+(?=%)')%"
+
+[date]
+command=echo " $(date '+%a %d %b %Y  %I:%M %p')"
+interval=30
+
+# Query my default IP address 
+#[ip]
+#command=ip a | grep -o 'inet 192[.0-9]*' | awk '{print " 🖥️ " $2}'
+#interval=120
+#color=#F4DBA4
+
+# Guess the weather hourly
+#[weather]
+#command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+#interval=3600
+#color=#A4C2F4
+
+#[d]
+#command=echo "$(todo doing) 🎯 "
+#interval=120
+#color=#C2A4F4
+
+#[todo]
+#command=echo " 🗓️ $(ls -1 ~/.local/share/calendars/arch | wc -l)"
+#interval=10
+
+#[todo]
+#command=echo " ⚪ $(nb todos open | wc -l)"
+#interval=10
+
+#[done]
+#command=echo " 🟢 $(nb todos closed | wc -l)"
+#interval=10
+
+# Get the price of colombian peso
+#[usd-to-cop]
+#command=curl -s https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd/cop.json | jq -r '.cop' | #awk -F'.' '{print "💲"$1}'
+#interval=7200
+#color=#A4F4B8
+
+#[click]
+#full_text=Click me!
+#command=echo "Got clicked with button $button"
+#color=#F79494
+
+# Block with a fixed width
+#[aligned]
+#full_text=Here.
+#min_width=100
+#align=center
+
+#[simple]
+#full_text=This is a looong white on red text
+#short_text=Short white on red text
+#background=#FF0000
+#color=#FFFFFF
+
+#[counter]
+#_count=0
+#command=printf '{"full_text":"Counter: %s", "_count":%d}\n' $_count $((_count + 1))
+#format=json
+#interval=60

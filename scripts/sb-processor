@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cpu_usage=$(vmstat 1 2 | tail -1 | awk '{print 100 - $15}')
+temp0=$(acpi -t | grep 'Thermal 0' | awk '{print $4}' | awk -F'.' '{print $1}')
+
+echo "$cpu_usage% ($temp0ºC)"

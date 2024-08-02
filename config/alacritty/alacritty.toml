@@ -1,0 +1,49 @@
+#import = ["/home/rooyca/.config/alacritty/themes/themes/hyper.toml"]
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[font]
+size = 12
+
+[font.bold]
+family = "Anonymice Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "Anonymice Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "Anonymice Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Anonymice Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Super|Shift"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+
+[shell]
+program = "/usr/bin/fish"
+
+[window]
+opacity = 0.8
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 10
+y = 10

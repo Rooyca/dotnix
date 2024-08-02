@@ -1,0 +1,26 @@
+*.ssh*
+.DS_Store
+/__pycahe__
+pyi-*
+*.sublime_session
+*/sublime-text/Log/*
+*.env
+*.arbtt
+#.local/bin/*
+*nohup.out
+*/.local/share
+*/.local/state
+
+# Tmux Plugins
+.config/tmux/plugins/*
+
+# Encripted files
+*.local/share/buku/bookmarks.db
+*.config/rclone/rclone.conf
+*.config/rooykup/config.toml
+*.zsh_history
+*.reminders/birthdays.rem
+*.reminders/events.rem
+
+# LASTFM
+lastplayed.json

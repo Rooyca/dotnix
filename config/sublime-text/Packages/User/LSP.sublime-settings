@@ -1,0 +1,13 @@
+{
+	"clients":
+	{
+		"polymer-ide":
+		{
+			"enabled": true,
+		},
+		"sorbet":
+		{
+			"enabled": true
+		},
+	},
+}
