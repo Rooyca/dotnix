@@ -26,7 +26,6 @@ lxappearance
 mdadm
 mpc
 mpd
-mpdscribble
 neovim
 nicotine+
 nitrogen
@@ -55,6 +54,5 @@ xorg
 xorg-server-devel
 xtools
 xz
-zellij
 transmission
 mpv

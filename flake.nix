@@ -18,12 +18,10 @@
       homeConfigurations."ryc" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+        modules = [ 
+        ./homeX.nix   # Xorg conf
+        #./homeWL.nix # Wayland conf
+        ];
       };
     };
 }

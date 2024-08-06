@@ -90,7 +90,7 @@
    XF86MonBrightnessDown
 
 # Take a screenshot
-"scrot '/home/roy/screenshots/%Y-%m-%d-%s_$wx$h.jpg'"
+"scrot -d 3 '/home/ryc/screenshots/%Y-%m-%d-%s_$wx$h.jpg'"
    Print
 
 ##################################

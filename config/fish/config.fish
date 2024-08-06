@@ -205,9 +205,9 @@ alias sonixd="$HOME/Documents/Sonixd-0.15.5-linux-x86_64.AppImage"
 #end
 
 # NIXPKGS
-alias nfu="cd ~/Documents/dotfiles/HOME/.config/home-manager && nix flake update && cd -"
+alias nfu="cd ~/Documents/dotnix && nix flake update && cd -"
 alias hm="home-manager"
-alias hmsf="home-manager switch --flake ~/Documents/dotfiles/HOME/.config/home-manager#$USER"
-alias hme="nvim ~/Documents/dotfiles/HOME/.config/home-manager/home.nix"
+alias hmsf="home-manager switch --flake ~/Documents/dotnix#$USER"
+alias hme="nvim ~/Documents/dotnix/home.nix"
 
 zoxide init fish | source
