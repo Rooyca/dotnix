@@ -25,8 +25,8 @@
     #nerdfetch
     neofetch
     #pfetch
-    audacious
-    sublime4
+    #audacious
+    #sublime4
     bat
     fd
     eza
@@ -43,6 +43,7 @@
     feh
     xclip
     xcolor
+    xorg.xprop
 
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ]; })
 
@@ -50,6 +51,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+  fonts.fontconfig.enable = true;
 
   # https://nix-community.github.io/home-manager/options.xhtml#opt-home.file
   home.file = {
@@ -67,6 +70,7 @@
 
     ## Config files
     ".config/dunst".source = ./config/dunst;
+    #".config/mpd".source = ./config/mpd;
     #".config/picom/picom.conf".source = ./config/picom/picom.conf;
     ".config/nix/nix.conf".source = ./config/nix/nix.conf;
     ".config/mpv/mpv.conf".source = ./config/mpv/mpv.conf;

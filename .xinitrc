@@ -1,7 +1,7 @@
 dunst &
 nitrogen --restore &
-arbtt-capture &
-nicotine &
+#arbtt-capture &
+#nicotine &
 
 #slstatus &
 #yabar -c /home/rooyca/Documents/dotfiles/.config/yabar.config &
@@ -16,12 +16,12 @@ xbindkeys
 
 #conky | dwm-setstatus &
 #statusbar.sh &
-mblocks &
+#mblocks &
 #exec /usr/local/bin/dwm
 
 #exec spectrwm
 #exec awesome
 
-#while :; do
-#    dwm
-#done
+while :; do
+    dwm
+done

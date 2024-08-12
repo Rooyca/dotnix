@@ -20,6 +20,7 @@
       "nfu" = "cd ~/Documents/dotnix && nix flake update && cd -";
       "hmsf" = "home-manager switch --flake ~/Documents/dotnix#$USER";
       "hme" ="nvim ~/Documents/dotnix/home.nix";
+      "subl" = "subl4"; # Sublime-text4 (on Voidlinux)
     };
 
     shellAbbrs = {
@@ -123,6 +124,16 @@
           repo = "fzf.fish";
           rev = "8920367cf85eee5218cc25a11e209d46e2591e7a";
           sha256 = "sha256-T8KYLA/r/gOKvAivKRoeqIwE2pINlxFQtZJHpOy9GMM=";
+        };
+      }
+
+      {
+        name = "nix.fish";
+        src = pkgs.fetchFromGitHub {
+          owner = "kidonng";
+          repo = "nix.fish";
+          rev = "ad57d970841ae4a24521b5b1a68121cf385ba71e";
+          sha256 = "sha256-GMV0GyORJ8Tt2S9wTCo2lkkLtetYv0rc19aA5KJbo48=";
         };
       }
     ];

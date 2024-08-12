@@ -148,7 +148,7 @@ set regexpengine=0
 set termguicolors
 
 try
-    colorscheme catppuccin_macchiato "desert 
+    colorscheme slate
 catch
 endtry
 
@@ -415,6 +415,6 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 " Plugins
-call plug#begin()
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-call plug#end()
+" call plug#begin()
+" Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+" call plug#end()

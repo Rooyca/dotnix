@@ -53,6 +53,8 @@
     # '')
   ];
 
+  fonts.fontconfig.enable = true;
+
   # https://nix-community.github.io/home-manager/options.xhtml#opt-home.file
   home.file = {
     ".vimrc".source = ./.vimrc;

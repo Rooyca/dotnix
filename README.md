@@ -10,5 +10,5 @@
 
 
 ```bash
-home-manager switch --flake .#"$USER"
+nix run nixpkgs#home-manager -- switch --flake .#"$USER"
 ```

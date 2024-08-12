@@ -3,7 +3,7 @@
 dunst &
 nitrogen --restore &
 #arbtt-capture &
-nicotine &
+#nicotine &
 # KEYBINDS
 xbindkeys
 

@@ -21,10 +21,6 @@ Button5=Ban,/BAN %u%n
 Button6=Part,/PART %c Leaving...%n
 Button7=Quit,/QUIT Leaving...%n
 
-[Channel 0]
-Name=#konversation
-Password=
-
 [Channel 1]
 Name=#xbps
 Password=
@@ -160,7 +156,7 @@ Server=irc.oftc.net
 
 [ServerGroup 0]
 AutoConnect=false
-AutoJoinChannels=Channel 0,Channel 1,Channel 2,Channel 3,Channel 4
+AutoJoinChannels=Channel 1,Channel 2,Channel 3,Channel 4
 ChannelHistory=Channel 5,Channel 6,Channel 7,Channel 8,Channel 9,Channel 10
 ConnectCommands=
 EnableNotifications=true
