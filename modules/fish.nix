@@ -2,8 +2,16 @@
   programs.fish = {
     enable = true;
     shellInit = ''
+      # Start X at login
+      if status is-login
+          if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+              exec startx /usr/bin/bspwm -- -keeptty
+          end
+      end
+
       set -g fish_greeting
       fish_prompt
+      set -x PATH $PATH /usr/local/bin /opt/bin $HOME/.scripts $HOME/.local/bin $HOME/.cargo/bin
     '';
 
     shellInitLast = ''

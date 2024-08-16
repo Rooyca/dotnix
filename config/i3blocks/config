@@ -1,6 +1,6 @@
 [processor]
 label=  
-command=/home/ryc/.local/bin/sb-processor
+command=/home/ryc/.scripts/sb-processor
 interval=2
 align=center
 
@@ -9,7 +9,7 @@ command=free -h | awk '/^Mem:/ {print "󱞟 " $3 }'
 interval=10
 
 [battery]
-command=/home/ryc/.local/bin/sb-battery
+command=/home/ryc/.scripts/sb-battery
 interval=20
 
 [volume]

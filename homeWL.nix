@@ -24,7 +24,7 @@
     #nerdfetch
     neofetch
     #pfetch
-    sublime4
+    #sublime4
     bat
     fd
     eza
@@ -38,13 +38,14 @@
     nb
 
     wl-clipboard
-    wmenu
-    foot
-    i3blocks
+    #wmenu
+    #foot
+    #i3blocks
     hyprpicker  # color picker
-    imv
+    #imv
     wlogout     # power menu
     slurp       # screenshot
+    nwg-look    # GTK3 settings editor
 
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ]; })
 
@@ -71,6 +72,10 @@
 
     ## Config files
     ".config/dunst".source = ./config/dunst;
+    ".config/sway".source = ./config/sway;
+    ".config/foot".source = ./config/foot;
+    ".config/i3blocks".source = ./config/i3blocks;
+
     ".config/nix/nix.conf".source = ./config/nix/nix.conf;
     ".config/mpv/mpv.conf".source = ./config/mpv/mpv.conf;
 

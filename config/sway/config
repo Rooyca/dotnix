@@ -10,7 +10,7 @@ set $term foot
 set $menu dmenu_path | wmenu | xargs swaymsg exec --
 
 ### Output configuration
-output * bg /home/ryc/Pictures/snow.jpg fill
+output * bg ~/Pictures/castle2.jpg fill
 
 ### Set colors
 set $bg #282A36c8
@@ -36,7 +36,7 @@ client.background $bg
     titlebar_padding 1
     titlebar_border_thickness 0
     #xwayland disable
-    font Terminus 9
+    font Terminus 8
 
 ### Idle configuration
     exec swayidle -w \
@@ -71,12 +71,12 @@ client.background $bg
 # Action Keys
 #
 
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    #bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    #bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    #bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-    bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
-    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+    #bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+    #bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 #
 # Basics:
@@ -91,16 +91,16 @@ client.background $bg
     bindsym $mod+p exec $menu
 
     # Start firefox
-    bindsym $mod+b exec firefox-esr
+    bindsym $mod+b exec firefox
 
     # Start sublime-text
-    bindsym $mod+s exec subl
+    bindsym $mod+s exec subl4
 
     # Start pcmanfm
     bindsym $mod+n exec pcmanfm
 
     # Powermenu
-    #bindsym $mod+Shift+p exec foot -H python /home/ryc/.scripts/manager.two.py
+    #bindsym $mod+Shift+p exec foot -H manager.two.py
     bindsym $mod+Shift+p exec wlogout
 
     # Drag floating windows by holding down $mod and left mouse button.

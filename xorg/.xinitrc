@@ -2,6 +2,7 @@ dunst &
 nitrogen --restore &
 #arbtt-capture &
 #nicotine &
+xsetroot -cursor_name left_ptr
 
 #slstatus &
 #yabar -c /home/rooyca/Documents/dotfiles/.config/yabar.config &
@@ -22,6 +23,6 @@ xbindkeys
 #exec spectrwm
 #exec awesome
 
-while :; do
-    dwm
-done
+#while :; do
+#    dwm
+#done

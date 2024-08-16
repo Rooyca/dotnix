@@ -23,12 +23,14 @@
 
 ram() {
 	mem=$(free -h | awk '/Mem:/ { print $3 }' | cut -f1 -d 'i')
-	echo "  $mem"
+	#echo "  $mem"
+    echo "RAM: $mem"
 }
 
 cpu() {
     cpu_usage=$(vmstat 1 2 | tail -1 | awk '{print 100 - $15}')
-    echo "  $cpu_usage"%
+    #echo "  $cpu_usage"%
+    echo "CPU: $cpu_usage"%
 }
 
 # network() {
@@ -73,15 +75,17 @@ volume_alsa() {
 	fi
 
 	if [ "$muted" = "off" ]; then
-		echo "󰝟 muted"
+		#echo "󰝟 muted"
+        echo "VOL: OFF"
 	else
-		if [ "$vol" -ge 65 ]; then
-			echo "  $vol%"
-		elif [ "$vol" -ge 40 ]; then
-			echo " $vol%"
-		elif [ "$vol" -ge 0 ]; then
-			echo " $vol%"	
-		fi
+		#if [ "$vol" -ge 65 ]; then
+		#	echo "  $vol%"
+		#elif [ "$vol" -ge 40 ]; then
+		#	echo " $vol%"
+		#elif [ "$vol" -ge 0 ]; then
+		#	echo " $vol%"	
+		#fi
+        echo "VOL: $vol%"
 	fi
 }
 
@@ -89,7 +93,8 @@ clock() {
 	dte=$(date +"%a %d %b %Y")
 	time=$(date +"%I:%M %p")
 
-	echo " $dte  $time"
+	#echo " $dte  $time"
+    echo "$dte - $time"
 }
 
 battery() {
@@ -98,20 +103,21 @@ battery() {
     battery_status=$(echo "$battery_info" | awk '{print $3}' | tr -d ',')
 
     # Define emoji based on battery percentage
-    case $battery_percentage in
-        9[0-9]|100) emoji="󰂂" ;;
-        8[0-9]) emoji="󰂁" ;;
-        7[0-9]) emoji="󰂀" ;;
-        6[0-9]) emoji="󰁿" ;;
-        5[0-9]) emoji="󰁾" ;;
-        4[0-9]) emoji="󰁽" ;;
-        3[0-9]) emoji="󰁼" ;;
-        2[0-9]) emoji="󰁻" ;;
-        *) emoji="󰂃" ;;
-    esac
+    # Remplace BAT: with $emoji
+    # case $battery_percentage in
+    #     9[0-9]|100) emoji="󰂂" ;;
+    #     8[0-9]) emoji="󰂁" ;;
+    #     7[0-9]) emoji="󰂀" ;;
+    #     6[0-9]) emoji="󰁿" ;;
+    #     5[0-9]) emoji="󰁾" ;;
+    #     4[0-9]) emoji="󰁽" ;;
+    #     3[0-9]) emoji="󰁼" ;;
+    #     2[0-9]) emoji="󰁻" ;;
+    #     *) emoji="󰂃" ;;
+    # esac
 
     # Display battery status
-    [ "$battery_status" = "Discharging" ] && echo "$emoji $battery_percentage%" || echo " $battery_percentage%"
+    [ "$battery_status" = "Discharging" ] && echo "BAT: $battery_percentage%" || echo "CHA: $battery_percentage%" #echo " $battery_percentage%"
 
     # Notification logic
     if [ "$battery_status" = "Discharging" ]; then
@@ -134,9 +140,9 @@ battery() {
 
 get_cpu_temp() {
     temp0=$(acpi -t | grep 'Thermal 0' | awk '{print $4}' | awk -F'.' '{print $1}')
-    stat="\x03 $temp0ºC"
+    stat="$temp0ºC"
     
-    echo -e $stat
+    echo $stat
 }
 
 detect_active_interface() {
@@ -169,8 +175,7 @@ main() {
 	while true; do
 		#active_interface=$(detect_active_interface)
         #$(upspeed "$active_interface") $(downspeed "$active_interface")
-		xsetroot -name " $(battery) | $(ram) | $(cpu) ($(get_cpu_temp)) | $(volume_alsa) | $(clock) "
-		sleep 1
+		echo "%{l}$(clock) %{r} $(battery) | $(ram) | $(cpu) ($(get_cpu_temp)) | $(volume_alsa) "
 	done
 }
 
