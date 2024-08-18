@@ -1,8 +1,7 @@
 {
-  description = "Home Manager configuration of ryc";
+  description = "ryc's Home Manager configuration";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -10,17 +9,34 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager }:
     let
+      username = "ryc"; # $USER
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      stateVersion = "24.05";
+
+      pkgs = import nixpkgs {
+        inherit system;
+
+        config = {
+          allowUnfree = true;
+          #permittedInsecurePackages = [ "openssl-1.1.1w" ]; # for Sublime-Text4
+        };
+      };
+
+      homeDirPrefix = "/home";
+      homeDirectory = "/${homeDirPrefix}/${username}";
+      secrets = builtins.fromJSON (builtins.readFile "${toString ./scrts/general.json}");
+
+      home = (import ./homeX.nix {
+        inherit homeDirectory stateVersion pkgs system username secrets;
+      });
     in {
-      homeConfigurations."ryc" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [ 
-        ./homeX.nix   # Xorg conf
-        #./homeWL.nix # Wayland conf
+        modules = [
+          home
         ];
       };
     };

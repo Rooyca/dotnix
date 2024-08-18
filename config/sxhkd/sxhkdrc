@@ -31,6 +31,10 @@ super + e
 super + shift + p
 	manager.tkinter.py
 
+# lock screen
+super + shift + l
+	physlock -s -p  "== Who is you =="
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -76,8 +80,8 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+#super + {_,shift + }{h,j,k,l}
+#	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
@@ -147,12 +151,18 @@ super + {Left,Down,Up,Right}
 #
 
 # volume
+# +4 is the signal number of the thonkbar script (get it by try and error)
 XF86Audio{Raise,Lower}Volume
-	amixer -q set Master {5%+,5%-}
+	amixer -q set Master {5%+,5%-}; pkill -RTMIN+4 thonkbar
+
+# music
+XF86Audio{Next,Prev,Play}
+	mpc -q {next,prev,toggle}
 
 # brightness
+# +3 is the signal number of the thonkbar script (get it by try and error)
 XF86MonBrightness{Up,Down}
-	brightnessctl s {10%+,10%-}
+	brightnessctl s {10%+,10%-}; pkill -RTMIN+3 thonkbar
 
 # screenshot
 Print

@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{ homeDirectory
+, stateVersion
+, pkgs
+, system
+, username
+, secrets }:
 
 {
   imports = [
@@ -6,21 +11,12 @@
     ./modules/zellij.nix
   ];
 
-  # nixpkgs configuration
-  nixpkgs.config = {
-    allowUnfree = true;
-    #permittedInsecurePackages = [ "openssl-1.1.1w" ]; # for Sublime-Text4
-  };
-
   fonts.fontconfig.enable = true;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   home = {
-    username = "ryc";
-    homeDirectory = "/home/ryc";
-
-    stateVersion = "24.05"; # Please dont change this if you are not sure what you are doing
+    inherit homeDirectory username stateVersion;
 
     packages = with pkgs; [
       obsidian
@@ -43,6 +39,7 @@
       jq
       lua-language-server
       nb
+      git-crypt
 
       scrot
       feh
@@ -59,6 +56,13 @@
 
     # https://nix-community.github.io/home-manager/options.xhtml#opt-home.file
     file = {
+      ".mpdasrc".text = ''
+          username = ${secrets.lastfm.user}
+          password = ${secrets.lastfm.pass}
+          runas = ${username}
+          debug = 1
+      '';
+
       ".vimrc".source = ./.vimrc;
       #".xbindkeysrc".source = ./.xbindkeysrc;
       #".conkyrc".source = ./conkyrc;
@@ -66,6 +70,7 @@
       ".xprofile".source = ./xorg/.xprofile;
       ".profile".source = ./xorg/.profile;
       ".Xresources".source = ./xorg/.Xresources;
+      ".radios.ry".source = ./config/radio_aliases/.radios.ry;
 
       ## BSPWM
       ".config/bspwm/bspwmrc".source = ./config/bspwm/bspwmrc;
@@ -75,6 +80,10 @@
         source = ./config/thonkbar;
         recursive = true;
       };
+      #".config/polybar" = {
+      #  source = ./config/polybar;
+      #  recursive = true;
+      #};
 
       ## Scripts
       ".scripts" = {

@@ -1,4 +1,4 @@
-import os, sys, requests, json
+import os, sys, requests
 
 def transfer(file_path, max_days=None, max_downloads=None, encrypt_password=None):
     # Check if the file exists

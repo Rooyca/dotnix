@@ -1,6 +1,6 @@
 export LANG="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
-export QT_QPA_PLATFORMTHEME=qt6ct
+export QT_QPA_PLATFORMTHEME="qt6ct"
 #export QT_QPA_PLATFORM="wayland-egl"
 #export ELM_DISPLAY="wl"
 #export COUNTDOWN_TIME="3"

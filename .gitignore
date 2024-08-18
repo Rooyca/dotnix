@@ -21,6 +21,7 @@ pyi-*
 *.zsh_history
 *.reminders/birthdays.rem
 *.reminders/events.rem
+secret-key*
 
 # LASTFM
 lastplayed.json
