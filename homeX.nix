@@ -41,6 +41,13 @@
       nb
       git-crypt
 
+      # Reverse Engineering
+      #ida-free
+      #python312Packages.angr
+      #frida-tools
+
+      #wpscan
+
       scrot
       feh
       xclip
@@ -62,20 +69,29 @@
           runas = ${username}
           debug = 1
       '';
+      
+      #".config/halloy/config.toml".text = ''
+      #    [servers.liberachat]
+      #    nickname = "${secrets.irc.libera.nick}"
+      #    nick_password = "${secrets.irc.libera.pass}"
+      #    server = "${secrets.irc.libera.url}"
+      #    channels = [${secrets.irc.libera.channels}]
+      #'';
 
       ".vimrc".source = ./.vimrc;
       #".xbindkeysrc".source = ./.xbindkeysrc;
-      #".conkyrc".source = ./conkyrc;
+      #".conkyrc".source = ./config/conky/conkyrc;
       ".xinitrc".source = ./xorg/.xinitrc;
       ".xprofile".source = ./xorg/.xprofile;
       ".profile".source = ./xorg/.profile;
       ".Xresources".source = ./xorg/.Xresources;
+      ".config/tiny/config.yml".source = ./config/tiny/config.yml;
       ".radios.ry".source = ./config/radio_aliases/.radios.ry;
 
       ## BSPWM
-      ".config/bspwm/bspwmrc".source = ./config/bspwm/bspwmrc;
+      #".config/bspwm/bspwmrc".source = ./config/bspwm/bspwmrc;
       ".config/sxhkd/sxhkdrc".source = ./config/sxhkd/sxhkdrc;
-      ".config/rofi/dracula.rasi".source = ./config/rofi/dracula.rasi;
+      #".config/rofi/dracula.rasi".source = ./config/rofi/dracula.rasi;
       ".config/thonkbar" = {
         source = ./config/thonkbar;
         recursive = true;
@@ -122,10 +138,10 @@
         recursive = true;
       };
 
-      ".config/" = {
-        source = ./config/konversation;
-        recursive = true;
-      };
+      #".config/" = {
+      #  source = ./config/konversation;
+      #  recursive = true;
+      #};
     };
 
     sessionVariables = {

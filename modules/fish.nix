@@ -6,15 +6,20 @@
       if status is-login
           if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
               export QT_QPA_PLATFORMTHEME="qt6ct"
-              exec startx /usr/bin/bspwm -- -keeptty
+              #exec startx /usr/bin/bspwm -- -keeptty
+              exec startx -- -keeptty
           end
       end
 
       set -g fish_greeting
       fish_prompt
       set -x PATH $PATH /usr/local/bin /opt/bin $HOME/.scripts $HOME/.local/bin $HOME/.cargo/bin
-      # radio aliases
+      
+      # Radio Aliases
       eval "$(radioalias.py)"
+      
+      # For Ghidra to work
+      set -x _JAVA_AWT_WM_NONREPARENTING 1
     '';
 
     shellInitLast = ''

@@ -10,3 +10,8 @@ top=https://breakz-high.rautemusik.fm/?ref=radiobrowser-top100-djcharts
 regg=http://hd.lagrosseradio.info/lagrosseradio-reggae-192.mp3
 regg2=http://somafm.com/m3u/reggae256.m3u
 beat=https://ice4.somafm.com/beatblender-128-mp3
+folk=https://ice2.somafm.com/folkfwd-128-mp3
+drone=https://ice4.somafm.com/dronezone-128-mp3
+metal=https://ice2.somafm.com/metal-128-mp3
+soul=http://ice1.somafm.com/7soul-128-mp3
+rap=http://ice2.somafm.com/fluid-128-mp3

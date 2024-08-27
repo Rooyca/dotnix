@@ -12,8 +12,9 @@ super + Return
 #super + p
 #	dmenu_run
 
+#-theme $HOME/.config/rofi/dracula.rasi
 super + {p,o,i}
-    rofi -show {run,drun,window} -theme $HOME/.config/rofi/dracula.rasi
+    rofi -show {run,drun,window} 
 
 # sublimetetx
 super + s

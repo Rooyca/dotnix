@@ -8,9 +8,9 @@ fi
 
 target=$1
 
-# Function to open a file with vim
-open_with_vim() {
-  vim "$1"
+# Function to open a file with EDITOR
+open_with_editor() {
+  $EDITOR "$1"
   exit 0
 }
 
@@ -24,13 +24,13 @@ if [ -d "$target" ]; then
     exit 1
   elif [ ${#files[@]} -eq 1 ]; then
     # If there is only one file, open it directly
-    open_with_vim "${files[0]}"
+    open_with_editor "${files[0]}"
   else
     # Display a menu to select a file
-    PS3="Select a file to open with vim (press 'q' to exit): "
+    PS3="Select a file to open with EDITOR (press 'q' to exit): "
     select file in "${files[@]}"; do
       if [ -n "$file" ]; then
-        open_with_vim "$file"
+        open_with_editor "$file"
       elif [ "$REPLY" = "q" ]; then
         echo "Exiting..."
         exit 0
@@ -40,6 +40,6 @@ if [ -d "$target" ]; then
     done
   fi
 else
-  # Open the target directly with vim
-  vim "$target"
+  # Open the target directly with EDITOR
+  $EDITOR "$target"
 fi

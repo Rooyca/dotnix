@@ -7,7 +7,7 @@
 nickname = ""
 nick_password = ""
 server = "irc.libera.chat"
-channels = ["#halloy", "#dwl", "#voidlinux", "#voidlinux-es", "#xbps", "#sway", "#archlinux", "#linux", "#security", "#python", "#gentoo", "#nixos", "#freebsd", "#suckless", "#suckless-es", "#dwm", "#xmonad", "#bspwm", "#awesomewm"]
+channels = ["#voidlinux", "#voidlinux-es", "#xbps", "#sway", "#nixos", "#freebsd", "#suckless", "#suckless-es", "#dwm", "#bspwm"]
 
 # [servers.oftc]
 # nickname = ""

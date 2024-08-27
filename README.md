@@ -20,6 +20,7 @@
 ## Secrets
 
 - tool: [git-crypt](https://github.com/AGWA/git-crypt)
+- `cat ./secret-key-base64 | base64 -d > ./secret-key`
 - `git-crypt unlock ./secret-key`
 
 ---

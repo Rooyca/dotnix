@@ -2,7 +2,7 @@ dunst &
 nitrogen --restore &
 #arbtt-capture &
 #nicotine &
-xsetroot -cursor_name left_ptr
+mpdas &
 
 #slstatus &
 #yabar -c /home/rooyca/Documents/dotfiles/.config/yabar.config &
@@ -13,15 +13,17 @@ xsetroot -cursor_name left_ptr
 #batsignal &
 
 # KEYBINDS
-xbindkeys
+#xbindkeys
+pgrep -x sxhkd > /dev/null || sxhkd &
 
 #conky | dwm-setstatus &
 #statusbar.sh &
-#mblocks &
+mblocks &
 #exec /usr/local/bin/dwm
 
 #exec spectrwm
 #exec awesome
+exec dwm
 
 #while :; do
 #    dwm
