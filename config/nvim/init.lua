@@ -256,6 +256,21 @@ require('lazy').setup({
     },
   },
 
+  --- Neo-Tree
+
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end,
+  },
+
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -377,6 +392,10 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
+      --- NvimTree
+      local tr = require 'nvim-tree.api'
+      vim.keymap.set('n', '<leader>e', tr.tree.toggle, { desc = ' Toggle [E]xplorer' })
+
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
@@ -405,7 +424,7 @@ require('lazy').setup({
   -- LSP Plugins
   {
     -- mini.icons
-    { 'echasnovski/mini.nvim', version = false },
+    { 'echasnovski/mini.icons', version = false },
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
     'folke/lazydev.nvim',

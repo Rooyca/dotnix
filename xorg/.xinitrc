@@ -2,7 +2,6 @@ dunst &
 nitrogen --restore &
 #arbtt-capture &
 #nicotine &
-mpdas &
 
 #slstatus &
 #yabar -c /home/rooyca/Documents/dotfiles/.config/yabar.config &
@@ -20,6 +19,10 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 #statusbar.sh &
 mblocks &
 #exec /usr/local/bin/dwm
+
+#mpdnotify &
+#mpdas &
+cantata &
 
 #exec spectrwm
 #exec awesome

@@ -14,6 +14,7 @@
       set -g fish_greeting
       fish_prompt
       set -x PATH $PATH /usr/local/bin /opt/bin $HOME/.scripts $HOME/.local/bin $HOME/.cargo/bin
+      set -x XDG_CONFIG_HOME "$HOME/.config"
       
       # Radio Aliases
       eval "$(radioalias.py)"
@@ -37,6 +38,7 @@
       "hmsf" = "home-manager switch --flake ~/Documents/dotnix#$USER";
       "hme" ="nvim ~/Documents/dotnix/home.nix";
       "subl" = "subl4"; # Sublime-text4 (on Voidlinux)
+      "gdb" = "gdb -q";
     };
 
     shellAbbrs = {

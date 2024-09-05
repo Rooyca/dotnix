@@ -24,7 +24,7 @@
       btop
       #strawberry
       #nerdfetch
-      neofetch
+      #neofetch
       #pfetch
       #audacious
       #sublime4
@@ -45,8 +45,6 @@
       #ida-free
       #python312Packages.angr
       #frida-tools
-
-      #wpscan
 
       scrot
       feh
@@ -86,7 +84,10 @@
       ".profile".source = ./xorg/.profile;
       ".Xresources".source = ./xorg/.Xresources;
       ".config/tiny/config.yml".source = ./config/tiny/config.yml;
+      ".config/tiny/pswrd".text = ''${secrets.irc.libera.pass}'';
       ".radios.ry".source = ./config/radio_aliases/.radios.ry;
+      ".config/gdb/gdbinit".source = ./config/gdb/.gdbinit;
+      ".config/zellij/layouts/default.kdl".source = ./config/zellij/layouts/clean_layout.kdl;
 
       ## BSPWM
       #".config/bspwm/bspwmrc".source = ./config/bspwm/bspwmrc;

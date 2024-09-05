@@ -4,7 +4,7 @@ servers:
       port: 6697
       tls: true
       realname: ryc
-      nicks: [ryc]
+      nicks: [ryck]
 
       # Server alias to show in the tab line.
       alias: liberachat
@@ -19,11 +19,7 @@ servers:
             ignore: true
             notify: messages
 
-          - name: "#voidlinux-es"
-            ignore: true
-            notify: messages
-
-          - name: "#bspwm"
+          - name: "#gdb"
             ignore: true
             notify: messages
 
@@ -56,10 +52,11 @@ servers:
 
       # pass: hunter2
 
-      # sasl:
-      #   username: tiny_user
-      #   password: hunter2
-      #   pem: "/home/user/.config/tiny/oftc.pem"
+      sasl:
+       username: ryck
+       password:
+            command: 'cat /home/ryc/.config/tiny/pswrd'
+       #pem: "/home/user/.config/tiny/oftc.pem"
 
       # nickserv_ident: hunter2
 
@@ -87,7 +84,7 @@ log_dir: "/home/ryc/tiny_logs"
 # scrollback: 512
 
 # UI layout: `compact` or `aligned`. Default is `compact`.
-# layout: compact
+# layout: aligned
 
 # Nick length in 'aligned' layout. Default is 12.
 # max_nick_length: 12

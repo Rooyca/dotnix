@@ -16,7 +16,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#695882";
+static const char col_cyan[]        = "#27baf8";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -33,13 +33,13 @@ static const Rule rules[] = {
 	 */
 	/* class        				  instance    title       tags mask     isfloating   monitor */
 	{ "Firefox",    				  NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "falkon",     				  NULL,       NULL,       1 << 0,       0,           -1 },
+	//{ "falkon",     				  NULL,       NULL,       1 << 0,       0,           -1 },
 	{ "Subl",       				  NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "obsidian",   				  NULL,       NULL,       1 << 3,       0,           -1 },
 	{ "strawberry", 				  NULL,       NULL,       1 << 4,       0,           -1 },
 	{ "Audacious",  				  NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "org.nicotine_plus.Nicotine",   NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "org.squidowl.halloy",     	  NULL,       NULL,       1 << 3,       0,           -1 },
+	{ "org.nicotine_plus.Nicotine",   NULL,       NULL,       1 << 7,       0,           -1 },
+	//{ "org.squidowl.halloy",     	  NULL,       NULL,       1 << 3,       0,           -1 },
 	//{ "konversation",          	  NULL,       NULL,       1 << 3,       0,           -1 },
 };
 
@@ -76,6 +76,9 @@ static const char *browsercmd[]  = { "firefox", NULL };
 static const char *sublcmd[]  = { "subl4", NULL };
 static const char *powercmd[] = {"python", "/home/ryc/.scripts/manager.tkinter.py", NULL};
 static const char *lockcmd[] = {"physlock", "-s", "-p", " == Who is you ==", NULL};
+static const char *cantatacmd[]  = { "cantata", NULL };
+
+#include "movestack.c"
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -84,10 +87,11 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_s,      spawn,          {.v = sublcmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = filecmd } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browsercmd } },
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
+	//{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = cantatacmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = powercmd } },
 	{ MODKEY,                       XK_v,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_c,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
@@ -102,7 +106,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+	//{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
@@ -116,7 +120,9 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_9,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_0,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 };
 
 /* button definitions */

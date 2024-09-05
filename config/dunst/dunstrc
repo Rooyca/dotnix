@@ -260,7 +260,7 @@
 
 [urgency_normal]
     # default #285577 ; from Polybar bar bg color  #2E3440 #3B4252
-    background = "#695882"
+    background = "#195c65"
     foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
