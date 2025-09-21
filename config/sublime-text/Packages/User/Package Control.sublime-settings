@@ -1,0 +1,33 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Astro",
+		"Dockerfile Syntax Highlighting",
+		"Javascript Beautify",
+		"Language - Spanish",
+		"LSP",
+		"LSP-astro",
+		"LSP-clangd",
+		"LSP-copilot",
+		"LSP-eslint",
+		"LSP-gopls",
+		"LSP-pyright",
+		"LSP-typescript",
+		"LSP-volar",
+		"LSP-vue",
+		"LSP-yaml",
+		"Nix",
+		"Vue",
+		"Ethereum",
+		"Package Control",
+		"Svelte",
+		"Theme - Afterglow",
+		"TOML",
+		"Vue Syntax Highlight",
+		"x86_64 Assembly",
+	],
+}

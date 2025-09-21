@@ -1,0 +1,18 @@
+pcm.bluetooth {
+    type plug
+    slave.pcm {
+        type bluealsa
+        device "21:5B:88:FF:5D:4A"
+        profile "a2dp"
+    }
+}
+
+pcm.!default {
+    type plug
+    slave.pcm bluetooth
+}
+
+ctl.!default {
+    type bluealsa
+}
+

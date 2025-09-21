@@ -1,0 +1,136 @@
+# Backup and Sync
+#alias bs="python /home/rooyca/Documents/Python/rooykup-backup-and-sync/rooykup.py"
+
+# Movies
+#alias movie="python /home/rooyca/Documents/Python/movie-cli/main.py"
+
+# Musicboard Rating
+#alias rate="python /home/rooyca/Documents/Python/rating-albums-musicboard/main.py"
+
+# Local Media Tracker
+#alias lmt="python /home/rooyca/Documents/Python/local-media-cons/cli/cli_tool.py"
+
+# IPTV
+#alias iptv="$HOME/Downloads/IPTVnator-0.15.0.AppImage"
+
+# Deemix
+alias deemix="$HOME/Downloads/deemix-linux-x64-latest.AppImage" 
+
+# Cat
+#alias cat="bat"
+
+# Transfer
+alias transfer="python $HOME/.scripts/transfer.py"
+
+# Cheat
+#alias cheat="cht.sh"
+
+# Git
+alias g="git"
+alias gs="git status"
+alias ga='git add'
+alias gp='git push'
+alias gpo='git push origin'
+alias gtd='git tag --delete'
+alias gtdr='git tag --delete origin'
+alias gr='git branch -r'
+alias gplo='git pull origin'
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias gco='git checkout '
+alias gl='git log'
+alias gr='git remote'
+alias grs='git remote show'
+alias glo='git log --pretty="oneline"'
+alias glol='git log --graph --oneline --decorate'
+
+# Show imgs in terminal (kitty)
+#alias shwimg="kitty +kitten icat"
+
+# Copy to clipboard
+#alias c="xclip -selection clipboard"
+
+# Paste from clipboard
+#alias p="xclip -o"
+
+# Yazi - file manager
+#alias yz="yazi"
+
+# Tasks
+# calendar-cli
+#export CAL="http://localhost:5232/rooyca/tasks-92a95779-5630-49ea-bcff-5793dc1ef45b"
+#alias t="python /home/rooyca/Documents/General/Python/calendar-cli/calendar_cli/legacy.py --calendar-url=$CAL todo"
+#alias t="python /home/rooyca/Documents/General/Python/todo-or-not-todo/main.py"
+#alias t="todo"
+
+# Remind
+## Remind - Frontend
+alias sc="remindcal $REMINDER_DIR/primary.rem"
+## Add Reminder
+alias er="$HOME/.scripts/add_rem.sh $REMINDER_DIR"
+## Show monthly reminds
+alias mr="remind -s $REMINDER_DIR/primary.rem"
+## Add reminder with notify
+alias nr="python $HOME/.scripts/remind.py"
+
+# Updater
+alias up="sudo pacman -Syu && sudo pacman -Sc"
+
+# LS replace
+alias ls="exa -a --icons --group-directories-first"
+alias ll="exa -la --icons --group-directories-first"
+
+# disk
+alias disk="duf"
+
+# ping
+alias pin="gping google.com"
+
+# ip color
+alias ip="ip --color=auto"
+
+# Network traffic
+alias red="sudo iftop -i wlan0"
+
+# Doom Emacs
+#export PATH="$HOME/.config/emacs/bin:$PATH"
+#alias em="emacsclient -c -a 'emacs'"
+alias mn="$EDITOR $HOME/nonotes"
+
+# TMUX
+alias t='tmux attach'
+alias tm='tmux new-session -s main'
+alias ta='tmux attach -t'
+alias tad='tmux attach -d -t'
+alias ts='tmux new-session -s'
+alias tl='tmux list-sessions'
+alias tksv='tmux kill-server'
+alias tkss='tmux kill-session -t'
+alias tkssa='tmux kill-session -a'
+alias tmuxconf='$EDITOR $HOME/.config/tmux/tmux.conf'
+
+# Zellij
+alias zm="zellij attach main"
+alias zl="zellij ls"
+alias zks="zellij kill-session"
+alias zka="zellij kill-all-sessions"
+alias zdn="zellij delete-session"
+alias zda="zellij delete-all-sessions"
+
+# Editor
+alias e="$EDITOR"
+
+# GitHub Copilot CLI
+alias sug="gh copilot suggest"
+alias exp="gh copilot explain"
+
+# NB
+alias nb="python $HOME/share/Python/notes/save_notes_to_nb.py; nb"
+alias nbtags="python $HOME/.scripts/nb_show_all_tags.py"
+
+# ARBTT-STATS
+alias xt="arbtt-stats" 
+
+# SPOTIFY
+alias npspotify="python $HOME/.scripts/now_playing_spotify.py"

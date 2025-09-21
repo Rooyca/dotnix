@@ -1,0 +1,57 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+xsetroot -cursor_name left_ptr
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+bspc config border_width         2
+bspc config window_gap           3
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config single_monocle       true
+
+# COLORS
+bspc config focused_border_color "#9556f5"
+bspc config normal_border_color "#757575"
+
+# FOCUS
+#bspc config focus_by_distance             true
+bspc config focus_follows_pointer         true
+#bspc config history_aware_focus           true
+bspc config pointer_motion_interval 40
+
+bspc rule -a Firefox desktop=^1
+bspc rule -a minipm state=floating center=on sticky
+bspc rule -a trayer state=floating sticky=on layer=above
+#bspc rule -a dev.geopjr.Turntable state=floating center=on sticky
+#bspc rule -a Subl4 desktop=^2
+#bspc rule -a org.squidowl.halloy desktop=^4
+
+# nitrogen --restore &
+$HOME/.fehbg & 
+# dunst &
+# mpd --no-daemon &
+# mpDris2 &
+pipewire &
+# (sleep 1 && pipewire-pulse) &
+# wireplumber &
+cbatticon \
+  -u 50 \
+  -r 10 \
+  -l 20 &
+trayer \
+  --edge top \
+  --align right \
+  --widthtype request \
+  --heighttype pixel \
+  --height 20 \
+  --iconspacing 2 \
+  --distance 2 \
+  --distancefrom right \
+  --transparent true \
+  --alpha 0 \
+  --tint 0x000000 \
+  --expand false &

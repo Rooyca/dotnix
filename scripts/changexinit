@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Change .XINITRC files easily
+
+set -e
+
+TARGET="${1:-}"; MAIN="$HOME/.xinitrc"; NEW="$HOME/.xinitrc.$TARGET"
+[ -n "$TARGET" ] || { echo "usage: $0 <wm>"; exit 1; }
+[ -f "$NEW" ] || { echo "not found: $NEW"; exit 1; }
+
+ln -sfn "$NEW" "$MAIN" 
+echo "Switched to $TARGET"

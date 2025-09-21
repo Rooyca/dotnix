@@ -1,0 +1,33 @@
+directory: ~/Music/organized
+library: ~/Music/beets.db
+
+import:
+  move: yes        # Move files to the library folder (instead of copying)
+  write: yes       # Write metadata into file tags
+  resume: ask      # Ask before resuming interrupted imports
+  incremental: yes # Keep track of what has already been imported
+  autotag: yes     # Automatically get tags from MusicBrainz
+
+paths:
+  default: $albumartist/[$year] $album/$track - $title
+  singleton: Non-Album/$artist - $title
+  comp: Compilations/[$year] $album/$track - $title
+
+replace:
+  '[\\/]': '-'     # Replace slashes with dashes
+  '[\x00-\x1f]': _ # Remove weird control chars
+  '^\.+': _        # Replace leading dots with underscores
+
+plugins: fetchart scrub lastgenre duplicates
+
+fetchart:
+  auto: yes
+  cautious: yes
+
+scrub:
+  auto: yes
+
+lastgenre:
+  auto: yes
+  count: 1        # Keep only the most relevant genre
+

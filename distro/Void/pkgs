@@ -1,0 +1,16 @@
+xtools
+git
+xorg-minimal
+xf86-video-intel
+base-devel
+elogind
+dbus
+pipewire
+wireplumber
+wireplumber-elogind
+alsa-utils
+katarakt
+xdg-desktop-portal
+xdg-utils
+7zip
+lidm

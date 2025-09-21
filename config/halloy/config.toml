@@ -1,0 +1,22 @@
+# Halloy config.
+#
+# For a complete list of available options,
+# please visit https://halloy.squidowl.org/configuration/index.html
+
+[servers.liberachat]
+nickname = "ryc"
+nick_password = ""
+server = "irc.libera.chat"
+channels = ["#voidlinux", "#voidlinux-es", "#xbps", "#sway", "#nixos", "#freebsd", "#suckless", "#suckless-es", "#dwm", "#bspwm"]
+
+# [servers.oftc]
+# nickname = ""
+# nick_password = ""
+# server = "irc.oftc.net"
+# channels = ["#spectrwm", "#oftc"]
+
+# [servers.freenode]
+# nickname = ""
+# nick_password = ""
+# server = "irc.freenode.net"
+# channels = ["#freenode", "#chat", "#linux", "#music"]

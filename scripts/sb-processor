@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Sorry
+
+read _ u n s i w x y z _ < /proc/stat
+p_idle=$((i+w))
+p_total=$((u+n+s+i+w+x+y+z))
+
+sleep 0.5
+
+read _ u n s i w x y z _ < /proc/stat
+n_idle=$((i+w))
+n_total=$((u+n+s+i+w+x+y+z))
+
+d_idle=$((n_idle-p_idle))
+d_total=$((n_total-p_total))
+
+((d_total==0)) && echo 0 && exit
+
+echo $(( (100*(d_total-d_idle))/d_total ))%

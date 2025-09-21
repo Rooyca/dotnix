@@ -1,0 +1,44 @@
+{
+	"ignored_packages":
+	[
+		"AppleScript",
+		"Vintage",
+	],
+	"color_scheme": "Mariana.sublime-color-scheme",
+	"theme": "auto",
+	"font_face": "JetBrainsMonoNL Nerd Font",
+	"font_size": 10,
+	"dictionary": "Packages/Language - Spanish/es_ES.dic",
+	"added_words":
+	[
+		"Finance",
+		"Letterboxd",
+		"Utteranc",
+		"blog",
+		"Issues",
+		"Github",
+		"Hugo",
+		"widget",
+		"install",
+		"repo",
+		"Utterances",
+		"vegana",
+		"",
+		"Windows",
+		"Linux",
+		"Mario",
+		"Oralidad",
+		"android",
+		"buku",
+		"extensibilidad",
+	],
+	"index_files": false,
+	"neovintageous_build_version": 13200,
+	"ignored_words":
+	[
+		"app",
+		"minimalista",
+	],
+	"dark_theme": "Adaptive.sublime-theme",
+	"light_theme": "Default Dark.sublime-theme",
+}

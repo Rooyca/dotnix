@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Battery notification script
+# cronjob: */10 * * * * (every 10 minutes)
+
+# Thresholds
+WARNING_LEVEL=25
+CRITICAL_LEVEL=10
+
+# State files to avoid duplicate notifications
+FULL_FILE=/tmp/battery_full
+LOW_FILE=/tmp/battery_low
+CRITICAL_FILE=/tmp/battery_critical
+
+# Extract battery info using acpi
+BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT0/capacity)
+BATTERY_STATUS=$(cat /sys/class/power_supply/BAT0/status)
+
+# Reset notifications when switching charging state
+if [[ "$BATTERY_STATUS" == "Charging" ]]; then
+    rm -f "$LOW_FILE" "$CRITICAL_FILE"
+elif [[ "$BATTERY_STATUS" == "Discharging" ]]; then
+    rm -f "$FULL_FILE"
+fi
+
+# Decide which notification to send
+if [[ "$BATTERY_STATUS" == "Charging" && "$BATTERY_LEVEL" -ge 95 && ! -f "$FULL_FILE" ]]; then
+    notify-send "Battery Charged" "Battery is fully charged." -i "battery-full" -r 9991
+    touch "$FULL_FILE"
+
+elif [[ "$BATTERY_STATUS" == "Discharging" && "$BATTERY_LEVEL" -le $CRITICAL_LEVEL && ! -f "$CRITICAL_FILE" ]]; then
+    notify-send "Battery Critical" "The computer may shutdown soon!" -u critical -i "battery-caution" -r 9991
+    touch "$CRITICAL_FILE"
+
+elif [[ "$BATTERY_STATUS" == "Discharging" && "$BATTERY_LEVEL" -le $WARNING_LEVEL && ! -f "$LOW_FILE" ]]; then
+    notify-send "Low Battery" "$BATTERY_LEVEL% remaining." -u critical -i "battery-low" -r 9991
+    touch "$LOW_FILE"
+fi
+
+echo "$BATTERY_LEVEL%"

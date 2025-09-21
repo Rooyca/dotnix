@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+while true; do
+    BATTACPI=$(acpi --battery)
+    BATPERC=$(echo $BATTACPI | cut -d, -f2 | tr -d '[:space:]')
+
+    echo "B$BATPERC"
+    sleep 30
+done
