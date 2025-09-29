@@ -31,11 +31,11 @@ bspc rule -a trayer state=floating sticky=on layer=above
 #bspc rule -a org.squidowl.halloy desktop=^4
 
 # nitrogen --restore &
-$HOME/.fehbg & 
+# $HOME/.fehbg & 
 # dunst &
 # mpd --no-daemon &
 # mpDris2 &
-pipewire &
+# pipewire &
 # (sleep 1 && pipewire-pulse) &
 # wireplumber &
 cbatticon \

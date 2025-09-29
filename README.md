@@ -26,6 +26,15 @@
 
 ---
 
+```
+doas apk add $(cat distro/Alpine/pkgs)
+chsh -s $(which bash)
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daemon
+. ~/.nix-profile/etc/profile.d/nix.sh
+```
+
+---
+
 ```bash
 nix run --extra-experimental-features nix-command --extra-experimental-features flakes nixpkgs#home-manager -- --extra-experimental-features nix-command --extra-experimental-features flakes switch --flake .#"$USER"
 sudo set-arch.sh

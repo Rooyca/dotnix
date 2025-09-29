@@ -23,6 +23,8 @@ let
     nvim = "nvim";
     session_ch = "session_ch";
   };
+
+  githubPkgs = import ./gh-pkgs.nix { inherit pkgs; };
 in
 
 {
@@ -41,6 +43,10 @@ in
 
   home = {
     packages = with pkgs; [
+      # Github Packages
+      githubPkgs.bin-bin
+      githubPkgs.st-flexipatch
+      # ron-pkgs repo
       ron-pkgs.packages.${pkgs.system}.barli
       ron-pkgs.packages.${pkgs.system}.minipm
       # nil

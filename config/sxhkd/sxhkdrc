@@ -18,7 +18,7 @@ super + Escape
 
 # Firefox
 super + b
-	firefox
+	firefox-esr
 
 # Power Manager
 super + shift + p

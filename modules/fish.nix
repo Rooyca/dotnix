@@ -34,8 +34,6 @@
       "hmsf" = "home-manager switch --flake ~/Documents/dotnix#$USER";
       "hme" = "nvim ~/Documents/dotnix/home.nix";
       "gdb" = "gdb -q";
-      "lf" = "yazi";
-      "vim" = "nvim";
     };
 
     shellAbbrs = {
