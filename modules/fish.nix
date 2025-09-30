@@ -8,8 +8,10 @@
 
       set -g fish_greeting
       fish_prompt
-      set -x PATH $PATH /usr/local/bin $HOME/go/bin /opt/bin $HOME/.scripts $HOME/.local/bin $HOME/.cargo/bin /sbin /usr/bin /usr/sbin /bin $HOME/.config/emacs/bin
+      set -x PATH $PATH /usr/local/bin $HOME/go/bin /opt/bin $HOME/.scripts $HOME/.cargo/bin /sbin /usr/bin /usr/sbin /bin $HOME/.local/bin
       set -x XDG_CONFIG_HOME "$HOME/.config"
+      set -x EDITOR "nvim"
+      source ~/.dzr
 
       # PNPM
       export PNPM_HOME="$HOME/.local/share/pnpm"
@@ -27,7 +29,6 @@
     '';
 
     shellAliases = {
-      "ip" = "ip --color=auto";
       "ls" = "exa -a --icons --group-directories-first";
       "ll" = "exa -la --icons --group-directories-first";
       "nfu" = "cd ~/Documents/dotnix && nix flake update";

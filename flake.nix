@@ -28,7 +28,7 @@
       };
 
       homeDirPrefix = "/home";
-      homeDirectory = "/${homeDirPrefix}/${username}";
+      homeDirectory = "${homeDirPrefix}/${username}";
       # secrets = builtins.fromJSON (builtins.readFile "${toString ./scrts/general.json}");
     in {
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {

@@ -12,7 +12,7 @@
 
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal Super Return spawn foot
-riverctl map normal Super B spawn firefox
+riverctl map normal Super B spawn librewolf
 riverctl map normal Super P spawn 'wmenu-run -f "Terminus 9" -S "#695882" -n "#eeeeee"'
 riverctl map normal Super+Shift P spawn wlogout
 
@@ -146,12 +146,13 @@ do
 done
 
 # Autostart
-riverctl spawn "waybar &"
+# riverctl spawn "waybar &"
 riverctl spawn "pipewire &"
 riverctl spawn "dunst &"
-riverctl spawn "mpd --no-daemon &"
-riverctl spawn "mpDris2 &"
+# riverctl spawn "mpd --no-daemon &"
+# riverctl spawn "mpDris2 &"
 riverctl spawn "pipewire-pulse &"
+riverctl spawn "wireplumber" &
 
 # Launch rivertile with gaps set
 rivertile -outer-padding 2 -view-padding 3 &

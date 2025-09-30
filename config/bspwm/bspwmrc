@@ -23,35 +23,33 @@ bspc config focus_follows_pointer         true
 #bspc config history_aware_focus           true
 bspc config pointer_motion_interval 40
 
-bspc rule -a Firefox desktop=^1
+bspc rule -a firefox-esr desktop=^1
+bspc rule -a Surf desktop=^1 
 bspc rule -a minipm state=floating center=on sticky
 bspc rule -a trayer state=floating sticky=on layer=above
-#bspc rule -a dev.geopjr.Turntable state=floating center=on sticky
-#bspc rule -a Subl4 desktop=^2
-#bspc rule -a org.squidowl.halloy desktop=^4
 
-# nitrogen --restore &
-# $HOME/.fehbg & 
-# dunst &
+$HOME/.fehbg & 
+dunst &
 # mpd --no-daemon &
 # mpDris2 &
-# pipewire &
+pipewire &
+pipewire-pulse &
+wireplumber &
 # (sleep 1 && pipewire-pulse) &
 # wireplumber &
-cbatticon \
-  -u 50 \
-  -r 10 \
-  -l 20 &
-trayer \
-  --edge top \
-  --align right \
-  --widthtype request \
-  --heighttype pixel \
-  --height 20 \
-  --iconspacing 2 \
-  --distance 2 \
-  --distancefrom right \
-  --transparent true \
-  --alpha 0 \
-  --tint 0x000000 \
-  --expand false &
+# cbatticon \
+#   -u 50 \
+#   -r 10 \
+#   -l 20 &
+# trayer \
+#   --edge top \
+#   --align right \
+#   --widthtype request \
+#   --height 20 \
+#   --iconspacing 2 \
+#   --distance 2 \
+#   --distancefrom right \
+#   --transparent true \
+#   --alpha 0 \
+#   --tint 0x000000 \
+#   --expand false &

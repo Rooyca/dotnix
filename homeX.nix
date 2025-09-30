@@ -8,20 +8,21 @@
 
 let
   configs = {
-    mpv = "mpv";
-    fastfetch = "fastfetch";
-    tiny = "tiny";
-    tmux = "tmux";
-    # zellij = "zellij";
-    #beets = "beets";
-    #mpd = "mpd";
     bspwm = "bspwm";
-    sxhkd = "sxhkd";
     dunst = "dunst";
-    nix = "nix";
+    fastfetch = "fastfetch";
     git = "git";
+    mpv = "mpv";
+    nix = "nix";
     nvim = "nvim";
     session_ch = "session_ch";
+    sxhkd = "sxhkd";
+    tiny = "tiny";
+    tmux = "tmux";
+    qt5ct = "qt5ct";
+    qt6ct = "qt6ct";
+    "gtk-3.0" = "gtk-3.0";
+
   };
 
   githubPkgs = import ./gh-pkgs.nix { inherit pkgs; };
@@ -30,6 +31,7 @@ in
 {
   imports = [
     ./modules/fish.nix
+    ./config/bin/config.nix
   ];
 
   fonts.fontconfig.enable = true;
@@ -43,17 +45,17 @@ in
 
   home = {
     packages = with pkgs; [
-      # Github Packages
+      # == Github Packages ==
       githubPkgs.bin-bin
       githubPkgs.st-flexipatch
-      # ron-pkgs repo
-      ron-pkgs.packages.${pkgs.system}.barli
+      githubPkgs.dwm-flexipatch
+      # == ron-pkgs repo ==
+      ron-pkgs.packages.${pkgs.system}.barli.musl
       ron-pkgs.packages.${pkgs.system}.minipm
-      # nil
+      nil
       # nixfmt-rfc-style
       # yaml-language-server
       lua-language-server
-      papirus-icon-theme
 
       # python312Packages.angr
       # frida-tools
@@ -61,6 +63,7 @@ in
       radare2
 
       xclip
+      xorg.xrandr
       xcolor
       xorg.xprop
 
@@ -71,20 +74,14 @@ in
       noto-fonts-cjk-sans
       noto-fonts-emoji
 
-      # (pkgs.writeShellScriptBin "my-hello" ''
-      #   echo "Hello, ${config.home.username}!"
-      # '')
-
       tmux
       trayer
       cbatticon
       feh
       ddgr
-      udiskie
       scrot
       obsidian
       zoxide
-      neovim
       github-cli
       eza
       yazi
@@ -92,15 +89,12 @@ in
       jq
       ripgrep
       fd
-      cargo
       dmenu
       btop
       fastfetch
       wget
-      mpv
       bat
       pinta
-      bashmount
       trash-cli
       redshift
       duf
@@ -108,31 +102,39 @@ in
     ];
 
     file = {
-      #".vimrc".source = ./.vimrc;
-      # ".config/stalonetrayrc".source = ./config/stalonetrayrc;
       ".config/redshift/redshift".source = ./config/redshift/redshift.conf;
       ".config/barli.conf".source = ./config/barli.conf;
-      #".xbindkeysrc".source = ./.xbindkeysrc;
-      #".conkyrc".source = ./config/conky/conkyrc;
-      # ".xinitrc".source = ./xorg/.xinitrc;
       ".xprofile".source = ./xorg/.xprofile;
       ".profile".source = ./xorg/.profile;
-      ".Xresources".source = ./xorg/.Xresources;
 
-      # ".config/nvim" = {
-      #   source = ./config/nvim_old;
-      #   recursive = true;
-      # };
-
-      ## Scripts
       ".scripts" = {
-        source = ./scripts;
+        source = config.lib.file.mkOutOfStoreSymlink ./scripts;
         recursive = true;
       };
-    };
 
-    sessionVariables = {
-      EDITOR = "nvim";
+      ".xinit" = {
+        source = config.lib.file.mkOutOfStoreSymlink ./xorg/xinitrc;
+        recursive = true;
+      };
+
+      ".xinitrc".text = ''
+        #!/usr/bin/env bash
+
+        XORG_DIR="$HOME/.xinit"
+
+        if [ "$SESSION" = "x11" ]; then
+          case "$USE_THIS_WM" in
+            dwm)   source "$XORG_DIR/.xinitrc.dwm" ;;
+            bspwm) source "$XORG_DIR/.xinitrc.bspwm" ;;
+            *)     echo "[-] Unknown WM: $USE_THIS_WM" >&2; exit 1 ;;
+          esac
+        else
+          echo "[-] Your variable SESSION=$SESSION is not x11" >&2
+          exit 1
+        fi
+      '';
+      ".xinitrc".executable = true;
     };
   };
 }
+

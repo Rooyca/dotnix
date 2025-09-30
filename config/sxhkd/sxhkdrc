@@ -8,6 +8,9 @@ set -U SXHKD_SHELL sh
 super + Return
 	st
 
+super + s
+  st -e "nvim"
+
 # program launcher
 super + p
 	dmenu_run -fn "Terminus:pixelsize=11:antialias=true" -sb "#695882" -sf "#eeeeee"
@@ -19,6 +22,9 @@ super + Escape
 # Firefox
 super + b
 	firefox-esr
+
+super + s
+	surf
 
 # Power Manager
 super + shift + p

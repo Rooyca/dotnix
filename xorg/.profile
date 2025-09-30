@@ -6,12 +6,3 @@ export QT_QPA_PLATFORMTHEME="qt6ct"
 #export COUNTDOWN_TIME="3"
 #export NIX_PATH=$HOME/.nix-defexpr/channels
 
-#[ ! -s ~/.config/mpd/pid ] && mpd
-
-#if ! pgrep -x "mpdscribble" > /dev/null; then
-#    mpdscribble
-#fi
-
-#if !pgrep -x "mblocks" > /dev/null; then
-#	mblocks &
-#fi
