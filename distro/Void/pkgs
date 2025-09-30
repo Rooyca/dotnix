@@ -1,7 +1,5 @@
 xtools
 git
-xorg-minimal
-xf86-video-intel
 base-devel
 elogind
 dbus
@@ -13,4 +11,5 @@ katarakt
 xdg-desktop-portal
 xdg-utils
 7zip
-lidm
+polkit
+xorg

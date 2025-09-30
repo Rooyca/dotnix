@@ -1,0 +1,10 @@
+#!/bin/sh
+
+$HOME/.fehbg &
+dunst &
+pipewire &
+pipewire-pulse &
+wireplumber &
+barli 2>> /tmp/barli.log &
+
+exec dwm 

@@ -13,7 +13,7 @@ pyi-*
 state.pickle
 
 # Tmux Plugins
-.config/tmux/plugins/*
+config/tmux/plugins/*
 
 # Encripted files
 *.local/share/buku/bookmarks.db
@@ -27,6 +27,7 @@ sk*
 
 # LASTFM
 lastplayed.json
+mpvscrobble.conf
 
 # TRATRA
 transactions.json

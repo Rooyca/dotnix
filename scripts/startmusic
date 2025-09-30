@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-PLAYER="${MUSIC_PLAYER:-mpv}"
-exec $PLAYER "$@"

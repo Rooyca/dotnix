@@ -39,3 +39,14 @@ sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daem
 nix run --extra-experimental-features nix-command --extra-experimental-features flakes nixpkgs#home-manager -- --extra-experimental-features nix-command --extra-experimental-features flakes switch --flake .#"$USER"
 sudo set-arch.sh
 ```
+
+## Fix
+
+### St terminal
+
+```
+# Clone st-flexipatch repo
+# Then run:
+tic -sx st.info
+set -Ux TERM st-256color
+```
