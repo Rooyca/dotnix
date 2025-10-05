@@ -99,6 +99,7 @@ in
       redshift
       duf
       dufs
+      spotify
     ];
 
     file = {

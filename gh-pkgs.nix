@@ -38,7 +38,11 @@
     patchPhase = ''
       substituteInPlace config.def.h \
         --replace 'static const char *firecmd[]  = { "firefox", NULL };' \
-                  'static const char *firecmd[]  = { "firefox-esr", NULL };'
+                  'static const char *firecmd[]  = { "librewolf", NULL };'
+
+      substituteInPlace config.def.h \
+        --replace 'RULE(.class = "firefox", .tags = 1 << 0)' \
+                  'RULE(.class = "librewolf", .tags = 1 << 0)'
     '';
 
     buildPhase = ''

@@ -414,8 +414,25 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 
+"
+" Plugins conf
+"
+
+
+let g:vimwiki_list = [{'path': '~/.nb/difinal/',
+                      \ 'syntax': 'markdown', 'ext': 'md'}]
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+"
 " Plugins
-" call plug#begin()
-" Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-" call plug#end()
+"
+
+call plug#begin()
+  Plug 'vimwiki/vimwiki'
+  Plug 'preservim/nerdtree'
+call plug#end()
 

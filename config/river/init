@@ -12,15 +12,15 @@
 
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal Super Return spawn foot
-riverctl map normal Super B spawn librewolf
-riverctl map normal Super P spawn 'wmenu-run -f "Terminus 9" -S "#695882" -n "#eeeeee"'
+riverctl map normal Super B spawn firefox
+riverctl map normal Super P spawn 'wmenu-run -f "Terminus 9" -S "#14121c" -n "#eeeeee"'
 riverctl map normal Super+Shift P spawn wlogout
 
 # Super+Q to close the focused view
 riverctl map normal Super+Shift Q close
 
 # Super+Shift+E to exit river
-riverctl map normal Super+Shift E exit
+# riverctl map normal Super+Shift E exit
 
 # Super+J and Super+K to focus the next/previous view in the layout stack
 riverctl map normal Super J focus-view next
@@ -146,19 +146,18 @@ do
 done
 
 # Autostart
-# riverctl spawn "waybar &"
-riverctl spawn "pipewire &"
-riverctl spawn "dunst &"
-# riverctl spawn "mpd --no-daemon &"
-# riverctl spawn "mpDris2 &"
-riverctl spawn "pipewire-pulse &"
+riverctl spawn "pipewire" &
+riverctl spawn "mako" &
+riverctl spawn "pipewire-pulse" &
 riverctl spawn "wireplumber" &
+#riverctl spawn "wbg -s $HOME/Pictures/frieren.jpg" &
+riverctl spawn "$HOME/.local/bin/batt-check" &
 
 # Launch rivertile with gaps set
 rivertile -outer-padding 2 -view-padding 3 &
 
 # Set background and border color
-# riverctl background-color 0x4c55c2
+#riverctl background-color 0x4e1859
 # riverctl border-color-focused 0x695882
 # riverctl border-color-unfocused 0x586e75
 
@@ -166,10 +165,11 @@ rivertile -outer-padding 2 -view-padding 3 &
 # riverctl set-repeat 50 300
 
 # Make all views with an app-id that starts with "float" and title "foo" start floating.
-riverctl rule-add -app-id 'float*' -title 'foo' float
+riverctl rule-add -app-id 'Firefox*' fullscreen
+riverctl rule-add -app-id 'Firefox*' tags 1
 
 # Make all views with app-id "bar" and any title use client-side decorations
-riverctl rule-add -app-id "bar" csd
+# riverctl rule-add -app-id "bar" csd
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.

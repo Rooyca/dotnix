@@ -45,8 +45,8 @@
             home.homeDirectory = homeDirectory;
             home.stateVersion = stateVersion;
           })
-          # ./homeWL.nix 
-          ./homeX.nix
+          ./homeWL.nix 
+          # ./homeX.nix
         ];
       };
     };

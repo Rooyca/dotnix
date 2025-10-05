@@ -10,8 +10,7 @@
       fish_prompt
       set -x PATH $PATH /usr/local/bin $HOME/go/bin /opt/bin $HOME/.scripts $HOME/.cargo/bin /sbin /usr/bin /usr/sbin /bin $HOME/.local/bin
       set -x XDG_CONFIG_HOME "$HOME/.config"
-      set -x EDITOR "nvim"
-      source ~/.dzr
+      set -x EDITOR "vim"
 
       # PNPM
       export PNPM_HOME="$HOME/.local/share/pnpm"
@@ -35,6 +34,7 @@
       "hmsf" = "home-manager switch --flake ~/Documents/dotnix#$USER";
       "hme" = "nvim ~/Documents/dotnix/home.nix";
       "gdb" = "gdb -q";
+      "v" = "$EDITOR";
     };
 
     shellAbbrs = {
@@ -68,9 +68,6 @@
       c = "clear";
       e = "$EDITOR";
       t = "btop";
-      up = "xi -Syu";
-      v = "nvim";
-      hx = "nvim";
       mt = "mpc toggle";
       mc = "mpc clear";
       ma = "mpc add";

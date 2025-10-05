@@ -12,6 +12,7 @@ pyi-*
 */.local/state
 state.pickle
 /watch_later
+/config/tmux/plugins
 
 # Tmux Plugins
 .config/tmux/plugins/*

@@ -8,32 +8,31 @@
 
 let
   configs = {
-    # helix = "helix";
-    mpv = "mpv";
-    tiny = "tiny";
-    i3blocks = "i3blocks";
-    tmux = "tmux";
-    beets = "beets";
     dunst = "dunst";
+    fastfetch = "fastfetch";
     foot = "foot";
-    sway = "sway";
-    mpd = "mpd";
-    # river = "river";
-    # waybar = "waybar";
-    # i3blocks = "i3blocks";
-    # bspwm = "bspwm";
-    # sxhkd = "sxhkd";
-    # dunst = "dunst";
+    river = "river";
+    mako = "mako";
+    git = "git";
+    mpv = "mpv";
     nix = "nix";
     nvim = "nvim";
-    git = "git";
     session_ch = "session_ch";
+    tiny = "tiny";
+    tmux = "tmux";
+    qt5ct = "qt5ct";
+    qt6ct = "qt6ct";
+    "gtk-3.0" = "gtk-3.0";
+
   };
+
+  githubPkgs = import ./gh-pkgs.nix { inherit pkgs; };
 in
 
 {
   imports = [
     ./modules/fish.nix
+    ./config/bin/config.nix
   ];
 
   fonts.fontconfig.enable = true;
@@ -47,47 +46,15 @@ in
 
   home = {
     packages = with pkgs; [
-      # ron-pkgs.packages.${pkgs.system}.barli
-      # ron-pkgs.packages.${pkgs.system}.minipm
-      # obsidian
-      # nil
-      # nixfmt-rfc-style
-      # yaml-language-server
-      # wget
-      # btop
-      # pinta
-      # ani-cli
-      #strawberry
-      # pfetch
-      bat
-      fd
-      #lf
-      # eza
-      # fzf
-      # zoxide
-      trash-cli
-      # ripgrep
-      bashmount
-      jq
+      # == Github Packages ==
+      githubPkgs.bin-bin
+      nil
       lua-language-server
-      # nb
-      #mcomix
-      # git-crypt
-      papirus-icon-theme
-      # speedtest-cli
-      #brave
 
-      # Reverse Engineering
-      # ida-free
-      #python312Packages.angr
-      #frida-tools
-
-      # emacs
-      # scrot
-      # feh
-      # xclip
-      # xcolor
-      # xorg.xprop
+      gdb
+      gef
+      radare2
+      binaryninja-free
 
       nerd-fonts.fira-code
       nerd-fonts.droid-sans-mono
@@ -95,42 +62,42 @@ in
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
-
-      #spotify
-
+      
       wl-clipboard
       hyprpicker
       slurp
       nwg-look
-      # imv
-      i3blocks
-      # wmenu
+      wlsunset
+      # gammastep
 
-      # (pkgs.writeShellScriptBin "my-hello" ''
-      #   echo "Hello, ${config.home.username}!"
-      # '')
+      tmux
+      ddgr
+      zoxide
+      github-cli
+      eza
+      yazi
+      fzf
+      jq
+      ripgrep
+      fd
+      btop
+      fastfetch
+      wget
+      bat
+      trash-cli
+      duf
+      dufs
     ];
 
     file = {
-      #".vimrc".source = ./.vimrc;
-      # ".config/stalonetrayrc".source = ./config/stalonetrayrc;
-      # ".config/redshift/redshift".source = ./config/redshift/redshift.conf;
-      #".xbindkeysrc".source = ./.xbindkeysrc;
-      #".conkyrc".source = ./config/conky/conkyrc;
-      # ".xinitrc".source = ./xorg/.xinitrc;
-      # ".xprofile".source = ./xorg/.xprofile;
       ".profile".source = ./xorg/.profile;
-      # ".Xresources".source = ./xorg/.Xresources;
+      ".vimrc".source = ./.vimrc;
 
-      ## Scripts
       ".scripts" = {
-        source = ./scripts;
+        source = config.lib.file.mkOutOfStoreSymlink ./scripts;
         recursive = true;
       };
     };
-
-    sessionVariables = {
-      EDITOR = "nvim";
-    };
   };
 }
+

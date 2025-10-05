@@ -5,7 +5,7 @@ if status is-login
             exec dbus-run-session startx -- -keeptty
         else if test "$SESSION" = "wayland"
             export XKB_DEFAULT_LAYOUT=es
-            exec dbus-run-session sway
+            exec dbus-run-session river -no-xwayland
         end
     end
 end
