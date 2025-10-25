@@ -1,8 +1,8 @@
 {
-  description = "ryc's Home Manager configuration";
+  description = "ryc's NixOS and Home Manager configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     ron-pkgs = { 
       url = "github:rooyca/ron-pkgs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,36 +17,38 @@
     let
       username = "ryc";
       system = "x86_64-linux";
-      stateVersion = "24.05";
+      stateVersion = "25.05";
+      hostname = "doom";
 
       pkgs = import nixpkgs {
         inherit system;
         config = {
           allowUnfree = true;
-          # permittedInsecurePackages = [ "openssl-1.1.1w" ];
         };
       };
 
       homeDirPrefix = "/home";
       homeDirectory = "${homeDirPrefix}/${username}";
-      # secrets = builtins.fromJSON (builtins.readFile "${toString ./scrts/general.json}");
     in {
-      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+      # NixOS system configuration
+      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+        inherit system;
         modules = [
-          ({ config, ... }: {
-            # Pass custom arguments using _module.args
-            _module.args = {
-              inherit ron-pkgs; # secrets ?
+          ./configuration.nix
+          
+          # Integrate Home Manager as a NixOS module
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = import ./homeX.nix;
+            
+            # Pass extra arguments to Home Manager modules
+            home-manager.extraSpecialArgs = {
+              inherit ron-pkgs;
               dotfiles = "${homeDirectory}/Documents/dotnix/config";
             };
-
-            home.username = username;
-            home.homeDirectory = homeDirectory;
-            home.stateVersion = stateVersion;
-          })
-          # ./homeWL.nix 
-          ./homeX.nix
+          }
         ];
       };
     };
