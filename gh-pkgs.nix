@@ -23,25 +23,18 @@
 
   dwm-flexipatch = pkgs.stdenv.mkDerivation {
     pname = "dwm-flexipatch";
-    version = "git-2025-09-29"; 
+    version = "git-2025-10-24"; 
 
     src = pkgs.fetchFromGitHub {
       owner = "rooyca"; 
       repo = "dwm-flexipatch";
       rev = "master"; 
-      sha256 = "sha256-rpP6tq8lsfP1uALWyzIRj+QlD9/fdjxRI9alk3gRxFI="; 
+      sha256 = "sha256-T7FprSxfJHjcQ/TaYrlIo7cwCyyIm0ZnKuGU0rzYnbg=";
     };
 
     nativeBuildInputs = [ pkgs.pkg-config ];
     buildInputs = [ pkgs.xorg.libX11 pkgs.xorg.libXft ];
     
-    postPatch = ''
-      substituteInPlace config.def.h \
-            --replace 'RULE(.class = "firefox", .tags = 1 << 0)' \
-                      'RULE(.class = "Firefox", .tags = 1 << 0)'
-    '';
-
-
     buildPhase = ''
       make
     '';

@@ -10,7 +10,7 @@
       fish_prompt
       set -x PATH $PATH /usr/local/bin $HOME/go/bin /opt/bin $HOME/.scripts $HOME/.cargo/bin /sbin /usr/bin /usr/sbin /bin $HOME/.local/bin
       set -x XDG_CONFIG_HOME "$HOME/.config"
-      set -x EDITOR "vim"
+      set -x EDITOR "nvim"
 
       # PNPM
       export PNPM_HOME="$HOME/.local/share/pnpm"
@@ -65,6 +65,7 @@
       # others
       c = "clear";
       e = "$EDITOR";
+      vim = "nvim";
       t = "btop";
       up = "xi -Syu";
       mt = "mpc toggle";

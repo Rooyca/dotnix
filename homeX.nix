@@ -76,8 +76,6 @@ in
       noto-fonts-emoji
 
       tmux
-      trayer
-      cbatticon
       feh
       ddgr
       scrot
