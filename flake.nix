@@ -17,15 +17,7 @@
     let
       username = "ryc";
       system = "x86_64-linux";
-      stateVersion = "25.05";
       hostname = "doom";
-
-      pkgs = import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
-      };
 
       homeDirPrefix = "/home";
       homeDirectory = "${homeDirPrefix}/${username}";

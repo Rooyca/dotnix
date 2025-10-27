@@ -23,13 +23,13 @@
 
   dwm-flexipatch = pkgs.stdenv.mkDerivation {
     pname = "dwm-flexipatch";
-    version = "git-2025-10-24"; 
+    version = "git-2025-10-25"; 
 
     src = pkgs.fetchFromGitHub {
       owner = "rooyca"; 
       repo = "dwm-flexipatch";
       rev = "master"; 
-      sha256 = "sha256-T7FprSxfJHjcQ/TaYrlIo7cwCyyIm0ZnKuGU0rzYnbg=";
+      sha256 = "sha256-2b7DcuZmDMDsqomKnlqoJqkG9BBmF4E4YY9qS1+S61Y=";
     };
 
     nativeBuildInputs = [ pkgs.pkg-config ];

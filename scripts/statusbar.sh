@@ -1,4 +1,5 @@
-#!/bin/sh
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p bash
 
 # usbmon() {
 # 	usb1=$(lsblk -la | awk '/sdc1/ { print $1 }')

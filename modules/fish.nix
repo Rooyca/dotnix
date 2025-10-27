@@ -2,13 +2,9 @@
   programs.fish = {
     enable = true;
     shellInit = ''
-      if test -f ~/.config/session_ch/session.fish
-        source ~/.config/session_ch/session.fish
-      end
-
       set -g fish_greeting
       fish_prompt
-      set -x PATH $PATH /usr/local/bin $HOME/go/bin /opt/bin $HOME/.scripts $HOME/.cargo/bin /sbin /usr/bin /usr/sbin /bin $HOME/.local/bin
+      set -x PATH $PATH $HOME/go/bin $HOME/.scripts $HOME/.cargo/bin $HOME/.local/bin
       set -x XDG_CONFIG_HOME "$HOME/.config"
       set -x EDITOR "nvim"
 
@@ -32,7 +28,7 @@
       "ll" = "exa -la --icons --group-directories-first";
       "nfu" = "cd ~/Documents/dotnix && nix flake update";
       "hmsf" = "home-manager switch --flake ~/Documents/dotnix#$USER";
-      "gdb" = "gdb -q";
+      "gdb" = "gef";
     };
 
     shellAbbrs = {
@@ -65,9 +61,7 @@
       # others
       c = "clear";
       e = "$EDITOR";
-      vim = "nvim";
       t = "btop";
-      up = "xi -Syu";
       mt = "mpc toggle";
       mc = "mpc clear";
       ma = "mpc add";

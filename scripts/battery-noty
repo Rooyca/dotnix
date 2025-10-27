@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#! /usr/bin/env bash
+
 # Battery notification script
 # cronjob: */10 * * * * (every 10 minutes)
 

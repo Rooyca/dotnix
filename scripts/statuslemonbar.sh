@@ -1,4 +1,5 @@
-#!/bin/bash
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p bash
 
 ram() {
 	mem=$(free -h | awk '/Mem:/ { print $3 }' | cut -f1 -d 'i')

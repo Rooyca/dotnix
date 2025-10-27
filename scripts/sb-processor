@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-# Sorry
+#! /usr/bin/env bash
 
 read _ u n s i w x y z _ < /proc/stat
 p_idle=$((i+w))

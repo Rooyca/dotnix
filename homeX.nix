@@ -8,7 +8,6 @@
 
 let
   configs = {
-    dunst = "dunst";
     fastfetch = "fastfetch";
     git = "git";
     mpv = "mpv";
@@ -27,15 +26,13 @@ in
 {
   imports = [
     ./modules/fish.nix
+    ./modules/dunst.nix
     ./config/bin/config.nix
   ];
 
-  # Add these Home Manager specific settings
   home.username = "ryc";
   home.homeDirectory = "/home/ryc";
   home.stateVersion = "25.05";
-
-  fonts.fontconfig.enable = true;
   programs.home-manager.enable = true;
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
@@ -52,12 +49,12 @@ in
       # == ron-pkgs repo ==
       ron-pkgs.packages.${pkgs.system}.barli.default
       ron-pkgs.packages.${pkgs.system}.minipm
-      nil
       lua-language-server
 
-      gdb
+      gef
       radare2
       binaryninja-free
+      ida-free
 
       xclip
       xcolor
@@ -66,6 +63,7 @@ in
       tiny
       feh
       ddgr
+      dmenu
       scrot
       obsidian
       zoxide
@@ -85,6 +83,7 @@ in
       redshift
       duf
       dufs
+      brightnessctl
     ];
 
     file = {

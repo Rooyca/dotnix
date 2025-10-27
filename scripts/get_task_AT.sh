@@ -1,4 +1,5 @@
-#!/bin/bash
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p bash
 
 count=$(atq | grep "$(date '+%a %b %d')" | wc -l)
 

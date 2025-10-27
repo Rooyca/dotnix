@@ -1,4 +1,5 @@
-#!/bin/bash
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p bash
 
 count=$(remind -s ~/.reminders/primary.rem | grep "$(date '+%Y/%m/%d')" | wc -l)
 
