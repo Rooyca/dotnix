@@ -9,11 +9,12 @@
         height = 250;
         origin = "bottom-right";
         transparency = 10;
-        font = "Droid Sans 8";
+        font = "Monospace 8";
         corner_radius = 7;
         progress_bar = true;
         icon_position = "left";
         max_icon_size = 58;
+        frame_width = 1;
       };
       
       urgency_low = {

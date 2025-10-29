@@ -6,11 +6,10 @@
       fish_prompt
       set -x PATH $PATH $HOME/go/bin $HOME/.scripts $HOME/.cargo/bin $HOME/.local/bin
       set -x XDG_CONFIG_HOME "$HOME/.config"
-      set -x EDITOR "nvim"
 
       # PNPM
-      export PNPM_HOME="$HOME/.local/share/pnpm"
-      set -gx PATH $PNPM_HOME $PATH
+      # export PNPM_HOME="$HOME/.local/share/pnpm"
+      # set -gx PATH $PNPM_HOME $PATH
 
       # Radio Aliases
       # eval "$(radioalias.py)"
@@ -19,16 +18,10 @@
       set -x _JAVA_AWT_WM_NONREPARENTING 1
     '';
 
-    shellInitLast = ''
-      zoxide init fish | source
-    '';
-
     shellAliases = {
       "ls" = "exa -a --icons --group-directories-first";
       "ll" = "exa -la --icons --group-directories-first";
       "nfu" = "cd ~/Documents/dotnix && nix flake update";
-      "hmsf" = "home-manager switch --flake ~/Documents/dotnix#$USER";
-      "gdb" = "gef";
     };
 
     shellAbbrs = {

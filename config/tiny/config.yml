@@ -76,7 +76,7 @@ servers:
       sasl:
        username: ryck
        password:
-            command: 'cat /home/ryc/tinypswrd'
+            command: 'cat /home/ryc/.tinypswrd'
        #pem: "/home/user/.config/tiny/oftc.pem"
 
       # nickserv_ident: hunter2

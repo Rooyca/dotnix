@@ -1,0 +1,40 @@
+{ pkgs }:
+with pkgs; [
+  binaryninja-free
+  nicotine-plus
+  cutter
+  ghidra
+  gdb
+  gef
+  ida-free
+  xclip
+  xcolor
+  tmux
+  tiny
+  feh
+  ddgr
+  dmenu
+  scrot
+  obsidian
+  eza
+  yazi
+  fzf
+  jq
+  ripgrep
+  fd
+  btop
+  fastfetch
+  wget
+  bat
+  pinta
+  trash-cli
+  redshift
+  duf
+  dufs
+  brightnessctl
+  pcmanfm
+  zathura
+  wpscan
+  mpv
+  qbittorrent
+]
