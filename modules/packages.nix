@@ -20,6 +20,7 @@ with pkgs; [
   yazi
   fzf
   jq
+  zip
   ripgrep
   fd
   btop
@@ -37,4 +38,5 @@ with pkgs; [
   wpscan
   mpv
   qbittorrent
+  yara
 ]

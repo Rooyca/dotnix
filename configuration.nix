@@ -19,7 +19,13 @@
     enable = true;
     allowedTCPPorts = [ 
       5000
-    #  4444
+      4444
+      8080
+      8000
+      3000
+      9000
+      6969
+      8888
     ];
   };
   # networking.extraHosts = ''
@@ -144,6 +150,7 @@
     appimage-run
     checksec
     python314
+    go
     openvpn
     git
     github-cli
@@ -166,12 +173,21 @@
     openresolv
     cloudflared
     bore-cli
+    ngrok
     bind.dnsutils
     dig
     metasploit
     file
     binutils
     remmina
+    ruby
+    osslsigncode
+    cmake
+    python313Packages.requests
+    awscli
+    rustup
+    zig
+    nim
   ];
 
   fonts.packages = with pkgs; [

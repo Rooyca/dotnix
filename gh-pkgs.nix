@@ -23,7 +23,7 @@
       owner = "rooyca"; 
       repo = "dwm-flexipatch";
       rev = "master"; 
-      sha256 = "";
+      sha256 = "sha256-1FTc/6VV7uwtyauJGTUiUH5G3XXCtC6Xn9WtwowAqhQ=";
     };
     nativeBuildInputs = [ pkgs.pkg-config ];
     buildInputs = [ pkgs.xorg.libX11 pkgs.xorg.libXft ];
