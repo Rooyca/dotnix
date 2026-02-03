@@ -30,6 +30,11 @@ pkgs.mkShell {
     thc-hydra
     nuclei
     gobuster
+    # Windows
+    pkgsCross.mingwW64.stdenv.cc
+    pkgsCross.mingw32.stdenv.cc
+    pkgsCross.mingwW64.windows.pthreads
+    pkgsCross.mingwW64.windows.mingw_w64_pthreads
   ];
   
   shellHook = ''

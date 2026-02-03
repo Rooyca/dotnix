@@ -8,10 +8,10 @@ pkgs.mkShell {
     cargo
 
     # Nodejs
-    nodejs_22  
-    nodePackages.npm
-    nodePackages.typescript
-    nodePackages.typescript-language-server
+    nodejs_20
+    # nodePackages.npm
+    # nodePackages.typescript
+    # nodePackages.typescript-language-server
     
     # C 
     gcc
@@ -35,6 +35,7 @@ pkgs.mkShell {
     # Others
     sqlitebrowser
     foundry
+    hugo
   ];
   
   shellHook = ''
