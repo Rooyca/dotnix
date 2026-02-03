@@ -1,9 +1,9 @@
 { pkgs }:
 with pkgs; [
   binaryninja-free
-  nicotine-plus
-  cutter
-  ghidra
+  # nicotine-plus
+  # cutter
+  # ghidra
   gdb
   gef
   ida-free
@@ -37,6 +37,15 @@ with pkgs; [
   zathura
   wpscan
   mpv
-  qbittorrent
+  # qbittorrent
+  pdfarranger
+  mariadb
+  # Monitoring
   yara
+  bpftools
+  libbpf
+  llvm
+  python3Packages.yara-python
+  clang
+  bpftrace
 ]

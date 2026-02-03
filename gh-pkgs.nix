@@ -31,6 +31,7 @@
     buildPhase = ''
       make
     '';
+
     installPhase = ''
       mkdir -p $out/bin
       install -m755 dwm $out/bin/dwm

@@ -21,11 +21,9 @@
       5000
       4444
       8080
-      8000
       3000
       9000
       6969
-      8888
     ];
   };
   # networking.extraHosts = ''
@@ -66,6 +64,8 @@
     pulse.enable = true;
   }; 
 
+  services.cloudflare-warp.enable = true;
+
   services.xserver = {
     enable = true;
     displayManager = { 
@@ -95,7 +95,7 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.librewolf;
+    # package = pkgs.librewolf;
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
@@ -126,10 +126,10 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
           installation_mode = "force_installed";
         };
-        # "{b9db16a4-6edc-47ec-a1f4-b86292ed211d}" = {
-        #   install_url = "https://addons.mozilla.org/firefox/downloads/latest/video-downloadhelper/latest.xpi";
-        #   installation_mode = "force_installed";
-        # };
+        "{b9db16a4-6edc-47ec-a1f4-b86292ed211d}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/video-downloadhelper/latest.xpi";
+          installation_mode = "force_installed";
+        };
         "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/auto-tab-discard/latest.xpi";
           installation_mode = "force_installed";
@@ -137,7 +137,7 @@
       };
     };
   };
-  environment.etc."firefox/policies/policies.json".target = "librewolf/policies/policies.json";
+  # environment.etc."firefox/policies/policies.json".target = "librewolf/policies/policies.json";
 
   programs.fish.enable = true;
   programs.direnv.enable = true;
@@ -163,7 +163,8 @@
     kdePackages.breeze-gtk
     kdePackages.breeze-icons
     wineWowPackages.stable
-    wireguard-tools
+    winetricks
+    # wireguard-tools
     protonvpn-gui
     filezilla
     burpsuite
@@ -172,22 +173,20 @@
     openssl
     openresolv
     cloudflared
-    bore-cli
-    ngrok
+    # bore-cli
+    # ngrok
     bind.dnsutils
     dig
     metasploit
     file
     binutils
     remmina
-    ruby
     osslsigncode
     cmake
     python313Packages.requests
     awscli
     rustup
     zig
-    nim
   ];
 
   fonts.packages = with pkgs; [
