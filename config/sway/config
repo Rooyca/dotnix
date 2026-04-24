@@ -7,10 +7,11 @@ set $right l
 
 set $term foot
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
-set $menu wmenu-run -f "Terminus 8" -S "#695882" -n "#eeeeee"
+# set $menu wmenu-run -f "Terminus 13" -S "#695882" -n "#eeeeee"
+set $menu rofi -show drun
 
 ### Output configuration
-output * bg ~/Images/alone.jpg fill
+output * bg ~/Pictures/river.jpg fill
 
 ### Set colors
 set $bg #282A36c8
@@ -57,16 +58,17 @@ client.background $bg
     input type:touchpad {
         dwt enabled
         tap enabled
+        tap_button_map lrm
         natural_scroll disabled
         middle_emulation enabled
     }
 
 ### Autostart
     # exec --no-startup-id nicotine
-    exec --no-startup-id dunst &
-    exec --no-startup-id mpd --no-daemon &
+    exec --no-startup-id mako &
+    # exec --no-startup-id mpd --no-daemon &
     exec --no-startup-id pipewire &
-    exec --no-startup-id mpDris2 &
+    # exec --no-startup-id mpDris2 &
     exec --no-startup-id pipewire-pulse &
     exec_always import-gsettings
 
@@ -75,9 +77,9 @@ client.background $bg
 # Action Keys
 #
 
-    #bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    #bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    #bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
     bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
     bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
@@ -202,6 +204,8 @@ client.background $bg
 # Default workspaces for apps
 #
     assign [app_id="firefox"] 1
+    assign [app_id="org.pwmt.zathura"] 4
+    assign [app_id="com.vector35.binaryninja"] 2
     # assign [app_id="sublime_text"] 2
     # assign [app_id="org.squidowl.halloy"] 4
     assign [app_id="org.nicotine_plus.Nicotine"] 9
@@ -248,20 +252,18 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
  bar {
-     status_command i3blocks
-     position bottom
+     status_command i3status-rs
+     position top
      font Terminus 8
      colors {
-         background #242525
          focused_workspace #ffffff00 $br #00000000
          active_workspace #ffffff00 #ffffff00 #ffffff
-         inactive_workspace #ffffff00 #ffffff00 #ffffff
      }
  }
 
 include @sysconfdir@/sway/config.d/*
-exec_always --no-startup-id mpd --no-daemon 
+# exec_always --no-startup-id mpd --no-daemon 
 exec_always --no-startup-id pipewire 
-exec_always --no-startup-id mpdris2-rs 
+# exec_always --no-startup-id mpdris2-rs 
 exec_always --no-startup-id pipewire-pulse 
 exec_always --no-startup-id wireplumber 
