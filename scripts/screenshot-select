@@ -1,0 +1,6 @@
+#!/bin/sh
+picom_pid=$(pidof picom)
+[ -n "$picom_pid" ] && trap 'kill -CONT "$picom_pid"' EXIT
+[ -n "$picom_pid" ] && kill -STOP "$picom_pid"
+
+maim -s | xclip -selection clipboard -t image/png

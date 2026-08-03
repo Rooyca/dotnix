@@ -1,0 +1,9 @@
+#!/bin/sh
+case "$1" in
+  up)   brightnessctl set +5% ;;
+  down) brightnessctl set 5%- ;;
+esac
+
+bri=$(brightnessctl -m | awk -F, '{print $4}' | tr -d '%')
+
+notify-send -h string:x-canonical-private-synchronous:brightness -h int:value:"$bri" -t 1500 "Brightness" "${bri}%"

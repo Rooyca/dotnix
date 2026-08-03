@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Log start
+echo "$(date): starting " >> /tmp/inthebeningin.log
+
+# Set variables early
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+xrdb -merge ~/.Xresources &
+echo "Xresources merged. PID $!" >> /tmp/inthebeningin.log
+
+blueman-applet &
+echo "bluethooth applet started with PID $!" >> /tmp/inthebeningin.log
+
+# Mouse setup - run only if device exists
+# DEVICE="$(xinput list --name-only | grep -i 'Wired Mouse')"
+# if [ -n "$DEVICE" ]; then
+#     xinput set-prop "$DEVICE" "libinput Accel Profile Enabled" 0, 1 &
+#     xinput set-prop "$DEVICE" "libinput Accel Speed" 1 &
+#     echo "Mouse configured: $DEVICE" >> /tmp/inthebeningin.log
+# else
+#     echo "WARNING: Wired Mouse not found" >> /tmp/inthebeningin.log
+# fi
+
+# Start programs one by one with error logging
+if [ -f "$HOME/.fehbg" ]; then
+    $HOME/.fehbg &
+    echo "fehbg started with PID $!" >> /tmp/inthebeningin.log
+else
+    echo "ERROR: .fehbg not found" >> /tmp/inthebeningin.log
+fi
+
+dunst &
+echo "dunst started with PID $!" >> /tmp/inthebeningin.log
+
+picom -b  # Use daemon mode instead of &
+echo "picom started with PID $!" >> /tmp/inthebeningin.log
+
+/home/ron/.local/bin/barli 2>> /tmp/barli.log &
+echo "barli started with PID $!" >> /tmp/inthebeningin.log
+
+nm-applet &
+echo "nm-applet started with PID $!" >> /tmp/inthebeningin.log
+
+exec dwm

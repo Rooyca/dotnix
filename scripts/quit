@@ -1,0 +1,14 @@
+#!/bin/sh
+choice=$(printf "🚪 Logout\n🔄 Reboot\n⏻ Shutdown" | rofi -dmenu -i -p "Session")
+
+case "$choice" in
+    "🚪 Logout") 
+        loginctl terminate-user $USER 
+        ;;
+    "🔄 Reboot") 
+        systemctl reboot 
+        ;;
+    "⏻ Shutdown") 
+        systemctl poweroff 
+        ;;
+esac
